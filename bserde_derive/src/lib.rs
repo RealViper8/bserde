@@ -4,6 +4,8 @@ use syn::{Data, DeriveInput, Fields, Index, parse_macro_input};
 
 extern crate bserde as bserde;
 
+/// # [`BSerialize`]
+/// Macro for serializing
 #[proc_macro_derive(BSerialize)]
 pub fn bserialize(input: TokenStream) -> TokenStream {
   let input = parse_macro_input!(input as DeriveInput);
@@ -114,6 +116,8 @@ pub fn bserialize(input: TokenStream) -> TokenStream {
   .into()
 }
 
+/// # BDeserialize
+/// Deserializing macro
 #[proc_macro_derive(BDeserialize)]
 pub fn bdeserialize(input: TokenStream) -> TokenStream {
   let input = parse_macro_input!(input as DeriveInput);

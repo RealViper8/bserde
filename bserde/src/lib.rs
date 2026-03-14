@@ -7,12 +7,17 @@ pub mod deserializer;
 
 // SERIALIZER
 
+/// # BSerialize
+/// To begin serializing
 pub trait BSerialize<'a> {
   fn serialize<S>(&'a self, serializer: &mut S) -> Result<(), S::Error>
   where
     S: BSerializer;
 }
 
+
+/// # BSerializer
+/// Used for serializing fields of structs, enums, extendable
 pub trait BSerializer: Sized {
   type Error: Error;
 
@@ -54,6 +59,8 @@ pub trait BSerializer: Sized {
   fn serialize_enum(&mut self) -> Result<Self::SerializeEnum<'_>, Self::Error>;
 }
 
+/// # BSerializeStruct
+/// Trait for serializing an struct
 pub trait BSerializeStruct {
   type Error: Error;
 
@@ -68,6 +75,8 @@ pub trait BSerializeStruct {
   fn end(self) -> Result<(), Self::Error>;
 }
 
+// # BSerializeEnum
+/// Trait for serializing an enum
 pub trait BSerializeEnum {
   type Error: Error;
 
@@ -76,6 +85,8 @@ pub trait BSerializeEnum {
 
 // DESERIALIZER
 
+// # BSerializeEnum
+/// Trait for deserializing
 pub trait BDeserialize: Sized {
   type Error: Error;
 
