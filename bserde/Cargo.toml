@@ -4,6 +4,8 @@ description = "Library for serializing data to binary."
 version = "0.1.2"
 edition = "2024"
 license = "MIT"
+homepage = "https://github.com/RealViper8/bserde/tree/main/bserde"
+repository = "https://github.com/RealViper8/bserde"
 authors = ["Gabriel"]
 
 [dependencies]
