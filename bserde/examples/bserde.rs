@@ -10,10 +10,6 @@ extern crate bserde as _serde;
 struct Person {
   name: String,
   age: u8,
-  num: u16,
-  num32: u32,
-  num64: u64,
-  num128: u128,
 }
 
 impl BSerialize<'_> for Person {
@@ -24,10 +20,6 @@ impl BSerialize<'_> for Person {
     let mut s = serializer.serialize_struct("Person", 2)?;
     s.serialize_field("name", &self.name)?;
     s.serialize_field("age", &self.age)?;
-    s.serialize_field("num", &self.num)?;
-    s.serialize_field("num32", &self.num32)?;
-    s.serialize_field("num64", &self.num64)?;
-    s.serialize_field("num128", &self.num128)?;
     s.end()
   }
 }
@@ -38,10 +30,6 @@ impl BDeserialize for Person {
     Ok(Self {
       name: String::deserialize(input)?,
       age: u8::deserialize(input)?,
-      num: u16::deserialize(input)?,
-      num32: u32::deserialize(input)?,
-      num64: u64::deserialize(input)?,
-      num128: u128::deserialize(input)?,
     })
   }
 }
@@ -50,12 +38,8 @@ fn main() {
   let out = fs::File::create("test.bin").unwrap();
   let mut s = _serde::serializer::BinarySerializer::new();
   let p = Person {
-    name: String::from("Hello"),
-    age: 69,
-    num: 32891,
-    num32: 10 * 12,
-    num64: 10 * 10,
-    num128: 10_u128.pow(35),
+    name: String::from("Hello, World"),
+    age: 34,
   };
 
   p.serialize(&mut s);
