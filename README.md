@@ -1,2 +1,3 @@
 # bserde
-A Binary Serialization crate
+
+A Binary Serialization crate with no Dependencies
