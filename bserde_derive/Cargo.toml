@@ -1,9 +1,11 @@
 [package]
 name = "bserde_derive"
 description = "Derive Macros for bserde"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 license = "MIT"
+homepage = "https://github.com/RealViper8/bserde"
+repository = "https://github.com/RealViper8/bserde"
 authors = ["Gabriel"]
 
 [lib]
